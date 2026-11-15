@@ -115,7 +115,7 @@ Stages from the LockForge paper, applied here (details and prompts in `AGENT_LOG
 
 Limitations of the process: the original LockForge PDF was not among the uploads, so the framework was taken from the arXiv version and its public artifact repo; all agents are Claude models (LockForge recommends different model *families* per role to reduce bias); the local B/C/S/R score (10/10) is self-assessed and should not be read as independent evidence.
 
-## Honest limitations
+## Limitations
 
 * Absolute numbers differ from the paper (+4 pts corruptibility under FLL; coverage D1 far above the paper) because the exact FLL/FpLL, the Hi-Z/UNK simulation, the coverage definition and the MCNC netlists are not given.
 * "Improved FpLL" is our guess; FpLL vs FLL ordering in the paper is not reproduced.
