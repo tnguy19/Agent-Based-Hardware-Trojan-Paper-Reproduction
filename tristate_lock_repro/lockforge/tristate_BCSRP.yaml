@@ -1,0 +1,79 @@
+# BCSRP checklist (LockForge, stage 3 "content mining") for
+# "Logic Locking: Exploration of a New Key-Gate Based on Tristate Logic" (LATS 2024)
+# Score = max{1, 10*(0.4*B + 0.3*C + 0.2*S + 0.1*R) - P};  pass >= 8
+B_checks:
+  - id: B1
+    desc: "Correct key restores the original function (XOR and tristate, all 8 benchmarks, all insertion algorithms)"
+    method: "random_sim_equivalence (512 vectors)"
+    pass_if: "locked(correct_key) == original on every circuit/scheme/algo"
+  - id: B2
+    desc: "Truth table of the type-1 tristate key-gate equals Table I (HiZ,i,~i,UNK)"
+    method: "tri_mode truth table"
+    pass_if: "mode(1,k1,k0) == [HIZ,BUF,INV,UNK] for (00,01,10,11)"
+  - id: B3
+    desc: "BUF key combination per type equals the paper text: (0,1),(1,1),(0,0),(1,0); every type has one BUF, INV, HiZ, UNK combination"
+    method: "tri_correct_key + mode census"
+    pass_if: "exact match"
+  - id: B4
+    desc: "Non-Boolean modes are simulated: Hi-Z -> retained constant, UNK -> threshold-dependent value; wrong keys can yield them"
+    method: "tiny circuit, 4 modes, Models(hiz,unk)"
+    pass_if: "BUF -> y, INV -> ~y, HiZ -> const, UNK -> const / buf / inv per model"
+  - id: B5
+    desc: "Wrong-key corruption is near the 50% target with tristate gates (FLL, 5%)"
+    method: "mean output corruptibility over 8 benchmarks"
+    params: {tau: 30.0}
+    pass_if: "mean >= tau"
+  - id: B6
+    desc: "XOR/XNOR and tristate give similar corruption with the same locations (paper: <0.3 pt difference)"
+    method: "|tri - xor| on corruptibility and corruption rate, FLL, 8 circuits"
+    params: {tol: 1.0}
+    pass_if: "both differences <= tol"
+  - id: B7
+    desc: "Key size: tristate uses 2 key bits per gate; half-gate experiment gives equal key size to XOR at full budget"
+    method: "key_bits accounting"
+    pass_if: "tri_bits(5%) == 2*xor_bits(5%) and tri_bits(2.5%) ~= xor_bits(5%) (+-1)"
+  - id: B8
+    desc: "Metrics are computed correctly (analytic single-XOR-on-output case -> 100/100/100)"
+    method: "tiny analytic circuit"
+    pass_if: "exact"
+  - id: B9
+    desc: "Experiments are deterministic for fixed seeds"
+    method: "run twice"
+    pass_if: "identical metrics"
+
+C_requirements:           # N = 12 concepts extracted in stage 1
+  - {key: C1,  concept: "tristate buffer || tristate inverter, two key bits"}
+  - {key: C2,  concept: "four modes BUF/INV/HiZ/UNK"}
+  - {key: C3,  concept: "four types = enable polarities; BUF combos per type"}
+  - {key: C4,  concept: "correct key = BUF or INV per gate; driver polarity compensation"}
+  - {key: C5,  concept: "FLL location selection"}
+  - {key: C6,  concept: "improved FpLL location selection"}
+  - {key: C7,  concept: "5% key-gate budget; 2 key bits/gate vs 1"}
+  - {key: C8,  concept: "protocol 1000 vectors x 100 incorrect keys on the 8 benchmarks"}
+  - {key: C9,  concept: "output corruptibility / corruption rate / output coverage"}
+  - {key: C10, concept: "half-key-gate experiment (2.5%) + 4-largest subset"}
+  - {key: C11, concept: "simulation semantics of Hi-Z and UNK"}
+  - {key: C12, concept: "SAT-attack discussion (constraints when type known; hidden type)"}
+
+S_components:
+  - {key: S1, component: "KeyGate record (net, scheme, behaviour, key_idx, type)", check: "tri gate has exactly two key indices (k1,k0); xor has one"}
+  - {key: S2, component: "type table TRI_TYPES / tri_mode", check: "enable polarity per type matches Fig. 3"}
+  - {key: S3, component: "lock_netlist driver compensation", check: "INV-behaving gate flips driver op (COMPLEMENT)"}
+  - {key: S4, component: "one key-gate per selected net, sinks and POs read key-gate output", check: "simulate_locked applies kg right after driver evaluation"}
+  - {key: S5, component: "tristate application _apply_tri", check: "out = buf_only&v | inv_only&~v | hiz&H | unk&U"}
+  - {key: S6, component: "insertion algorithms (random/FLL/FpLL/FpLL+)", check: "ordered list, prefix = half budget"}
+  - {key: S7, component: "metrics module", check: "three metrics + alternative coverage readings"}
+  - {key: S8, component: "wrong-key sampler", check: "random keys != correct key"}
+
+R_criteria:
+  cmd: "python run_experiments.py --quick --out /tmp/quick"
+  success_log_regex: "correct-key equivalence failures: 0"
+
+P_penalties:
+  - {key: single_key_bit_tristate,     severity: 3, trigger: "tristate gate controlled by one key bit"}
+  - {key: hiz_unk_not_modelled,        severity: 3, trigger: "tristate gate has only BUF/INV (no Hi-Z/UNK)"}
+  - {key: no_driver_compensation,      severity: 3, trigger: "inverting key-gate not compensated -> correct key does not restore function"}
+  - {key: types_not_distinguished,     severity: 2, trigger: "four types collapsed into one mapping"}
+  - {key: wrong_metric_definition,     severity: 2, trigger: "metric deviates from paper definitions without being reported as alternative"}
+  - {key: insertion_algorithms_missing, severity: 2, trigger: "no FLL / FpLL style selection (random only)"}
+  - {key: protocol_mismatch,           severity: 1, trigger: "vectors/keys/budget differ from 1000/100/5%"}

@@ -1,0 +1,15 @@
+{
+ "_comment": "LLM-A derives paper-grounded T/F statements (LockForge 'LLM-as-Examiner'). The 'answer' field is the hidden key; it is NOT given to LLM-B/LLM-C.",
+ "statements": [
+  {"id": "T1",  "text": "Each tristate key-gate in the implementation is controlled by two key bits.", "answer": true},
+  {"id": "T2",  "text": "For a type-1 gate the key combination (k1,k0)=(0,0) makes the gate behave as a buffer.", "answer": false},
+  {"id": "T3",  "text": "When both the buffer and the inverter of a tristate key-gate are enabled, the implementation models the output as a high-impedance (retained-value) state.", "answer": false},
+  {"id": "T4",  "text": "The four gate types differ in whether the buffer enable and the inverter enable are active-high or active-low.", "answer": true},
+  {"id": "T5",  "text": "If a key-gate must act as an inverter under the correct key, the implementation compensates by replacing the driving gate with its complement so the circuit function is preserved.", "answer": true},
+  {"id": "T6",  "text": "In the main experiment the number of inserted key-gates is 5% of the gate count, and tristate and XOR/XNOR schemes use the same number of key-gates (so the tristate key has twice as many bits).", "answer": true},
+  {"id": "T7",  "text": "Corruption metrics are computed with 1000 random input vectors, each applied for 100 random incorrect keys, by default.", "answer": true},
+  {"id": "T8",  "text": "The primary 'output coverage' metric is the average over keys of the fraction of outputs corrupted for that key.", "answer": false},
+  {"id": "T9",  "text": "The half-budget experiment reuses the first half of the ordered list of selected nets, with 2.5% tristate key-gates giving the same number of key bits as 5% XOR/XNOR key-gates.", "answer": true},
+  {"id": "T10", "text": "Key-gates are placed on primary-input nets as well as on gate-output nets.", "answer": false}
+ ]
+}

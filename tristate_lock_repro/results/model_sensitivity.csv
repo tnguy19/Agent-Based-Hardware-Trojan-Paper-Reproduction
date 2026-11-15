@@ -1,0 +1,16 @@
+hiz,unk,output_corruptibility,corruption_rate,output_coverage,output_coverage_per_key
+const,buf,45.7,99.5,99.2,83.6
+const,const,45.9,99.5,99.2,90.2
+const,inv,46.0,99.5,99.2,84.6
+const,pin,46.0,99.5,99.2,90.3
+const,vec,45.9,99.5,99.2,90.3
+vec,buf,45.7,99.5,99.2,83.7
+vec,const,45.9,99.5,99.2,90.3
+vec,inv,46.0,99.4,99.2,84.8
+vec,pin,45.9,99.6,99.2,90.4
+vec,vec,45.9,99.5,99.2,90.4
+zero,buf,43.8,99.7,99.2,83.5
+zero,const,44.0,99.7,99.2,90.2
+zero,inv,44.1,99.7,99.2,84.6
+zero,pin,44.2,99.7,99.2,90.2
+zero,vec,44.0,99.7,99.2,90.3

@@ -1,0 +1,7 @@
+{
+ "local_execution": {"B": 1.0, "C_self": 1.0, "S": 1.0, "R": 1.0, "P": 0, "score": 10.0, "note": "self-assessed by LLM-A (coder); lockforge/evaluate_bcsrp.py"},
+ "judge_LLM_B_opus": {"score": 9.15, "pass_threshold": 8, "passed": true},
+ "examiner_LLM_C_haiku": {"tf_accuracy": "10/10", "pass_threshold": "8/10", "passed": true, "holistic_score": 6, "holistic_note": "driven by isolation artefacts (no benchmarks in package) + documented modelling choices"},
+ "all_models_are_Claude": true,
+ "limitation": "LockForge recommends different model FAMILIES per role; here the judge and examiner are different Claude models, and the coder is also Claude, so cross-family bias is not controlled."
+}

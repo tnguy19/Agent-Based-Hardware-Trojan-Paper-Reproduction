@@ -1,0 +1,31 @@
+{
+ "B_checks": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "B4": true,
+  "B5": true,
+  "B6": true,
+  "B7": true,
+  "B8": true,
+  "B9": true
+ },
+ "S_checks": {
+  "S1": true,
+  "S2": true,
+  "S3": true,
+  "S4": true,
+  "S5": true,
+  "S6": true,
+  "S7": true,
+  "S8": true
+ },
+ "B": 1.0,
+ "C(self-assessed)": 1.0,
+ "S": 1.0,
+ "R": 1.0,
+ "P": 0,
+ "score_local": 10.0,
+ "pass_threshold": 8,
+ "passed": true
+}

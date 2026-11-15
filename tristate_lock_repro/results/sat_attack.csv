@@ -1,0 +1,16 @@
+circuit,scheme,attacker_model,key_gates,key_bits,iterations,seconds,converged,function_recovered,key_works_on_real_chip,exact_key,note
+c432,xor,xor,8,8,3,0.02,1,True,True,True,converged
+c432,tri,tri_known,8,16,4,0.02,1,True,True,True,converged
+c432,tri,tri_assume1,8,16,4,0.02,1,True,False,False,converged
+c432,tri,tri_family,8,16,2,0.02,1,True,False,False,converged
+c432,tri,tri_free,8,16,40,0.12,0,False,False,False,iteration cap (no convergence)
+c880,xor,xor,19,19,3,0.06,1,True,True,True,converged
+c880,tri,tri_known,19,38,2,0.06,1,True,True,True,converged
+c880,tri,tri_assume1,19,38,2,0.07,1,True,False,False,converged
+c880,tri,tri_family,19,38,3,0.06,1,True,False,False,converged
+c880,tri,tri_free,19,38,40,0.26,0,False,False,False,iteration cap (no convergence)
+c1908,xor,xor,44,44,19,0.3,1,True,True,True,converged
+c1908,tri,tri_known,44,88,20,0.3,1,True,True,True,converged
+c1908,tri,tri_assume1,44,88,20,0.31,1,True,False,False,converged
+c1908,tri,tri_family,44,88,20,0.37,1,True,False,False,converged
+c1908,tri,tri_free,44,88,40,0.62,0,False,False,False,iteration cap (no convergence)

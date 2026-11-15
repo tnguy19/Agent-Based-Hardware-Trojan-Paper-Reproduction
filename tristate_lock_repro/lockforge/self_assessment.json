@@ -1,0 +1,18 @@
+{
+ "_comment": "LLM-A (coder) static self-assessment of the C (concepts) criterion, with evidence. The independent judges re-assess without seeing this file.",
+ "C": {
+  "C1": {"implemented": true,  "evidence": "tristate_lock/keygates.py KeyGate(scheme='tri', key_idx=(k1,k0)); locking.py _apply_tri"},
+  "C2": {"implemented": true,  "evidence": "keygates.py tri_mode -> BUF/INV/HIZ/UNK; locking.py _apply_tri"},
+  "C3": {"implemented": true,  "evidence": "keygates.py TRI_TYPES; tests TestKeyGateModel"},
+  "C4": {"implemented": true,  "evidence": "locking.py lock_netlist (COMPLEMENT on INV); keygates.py tri_correct_key"},
+  "C5": {"implemented": true,  "evidence": "insertion.py select_fll/_lazy_greedy (re-implementation, partially under-specified in paper)"},
+  "C6": {"implemented": true,  "evidence": "insertion.py select_fpll (as published) + select_fpll_plus (our interpretation of 'improved')"},
+  "C7": {"implemented": true,  "evidence": "run_experiments.py K5 = round(0.05*N); key bits 2/gate vs 1"},
+  "C8": {"implemented": true,  "evidence": "run_experiments.py BENCH (8 circuits), n_vec=1000, n_keys=100; metrics.random_wrong_keys"},
+  "C9": {"implemented": true,  "evidence": "metrics.py corruption_metrics (+2 alternative coverage readings)"},
+  "C10": {"implemented": true, "evidence": "run_experiments.py 'half' experiment; analyze.py LARGEST4"},
+  "C11": {"implemented": true, "evidence": "locking.py Models(hiz, unk) + sensitivity sweep ('model' experiment)"},
+  "C12": {"implemented": true, "evidence": "sat_attack.py (supplementary), run_sat_attack.py"}
+ },
+ "P_triggered": []
+}

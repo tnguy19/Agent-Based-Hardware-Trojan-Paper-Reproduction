@@ -1,0 +1,21 @@
+algorithm,metric,XOR/XNOR,tristate,tri - xor,paper XOR | tri
+FLL,output_corruptibility,46.1 ± 0.2,46.0 ± 0.2,-0.11476258232838887,41.9 | 42.0
+FLL,corruption_rate,99.7 ± 0.2,99.5 ± 0.2,-0.2144999999999868,99.7 | 99.6
+FLL,output_coverage,99.2 ± 0.0,99.2 ± 0.0,0.0,66.6 | 70.1
+FLL,output_coverage_per_key,77.2 ± 0.5,90.5 ± 0.5,13.258689943021153,-
+FLL,output_coverage_maxhd,87.5 ± 0.8,89.1 ± 0.6,1.5456382079603657,-
+FpLL (as published),output_corruptibility,32.1 ± 0.2,31.9 ± 0.1,-0.24525057511562665,43.5 | 43.4
+FpLL (as published),corruption_rate,96.1 ± 0.3,96.0 ± 0.4,-0.1296000000000106,98.5 | 98.8
+FpLL (as published),output_coverage,89.6 ± 0.0,89.7 ± 0.1,0.02314814814815236,68.9 | 71.4
+FpLL (as published),output_coverage_per_key,85.7 ± 0.4,87.3 ± 0.2,1.5429856533296658,-
+FpLL (as published),output_coverage_maxhd,67.1 ± 0.3,66.7 ± 0.4,-0.4063836193917467,-
+FpLL+ (our 'improved'),output_corruptibility,39.4 ± 0.2,39.3 ± 0.2,-0.09218585829944459,-
+FpLL+ (our 'improved'),corruption_rate,99.5 ± 0.1,99.3 ± 0.1,-0.15000000000000568,-
+FpLL+ (our 'improved'),output_coverage,94.5 ± 0.6,94.3 ± 0.2,-0.19999999999998863,-
+FpLL+ (our 'improved'),output_coverage_per_key,75.6 ± 0.6,85.5 ± 0.3,9.868188269276601,-
+FpLL+ (our 'improved'),output_coverage_maxhd,78.4 ± 0.7,79.3 ± 0.5,0.8701949200678882,-
+random (baseline),output_corruptibility,25.3 ± 0.2,25.3 ± 0.2,-0.014787916154212155,-
+random (baseline),corruption_rate,94.0 ± 0.1,93.9 ± 0.2,-0.13997499999999263,-
+random (baseline),output_coverage,84.1 ± 0.0,84.1 ± 0.0,0.0,-
+random (baseline),output_coverage_per_key,80.3 ± 0.4,82.3 ± 0.3,1.9274433336037333,-
+random (baseline),output_coverage_maxhd,60.4 ± 0.3,60.1 ± 0.6,-0.2995935814787387,-

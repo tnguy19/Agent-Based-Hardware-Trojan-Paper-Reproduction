@@ -1,0 +1,11 @@
+{
+ "table_II": {
+  "fll":  {"output_corruptibility": [41.9, 42.0], "corruption_rate": [99.7, 99.6], "output_coverage": [66.6, 70.1]},
+  "fpll": {"output_corruptibility": [43.5, 43.4], "corruption_rate": [98.5, 98.8], "output_coverage": [68.9, 71.4]}
+ },
+ "table_III": {
+  "comment": "columns: XOR/XNOR 5%, tristate 2.5% (8 circuits), tristate 2.5% (4 largest)",
+  "fll":  {"output_corruptibility": [41.9, 37.2, 40.8], "corruption_rate": [99.7, 97.8, 99.7], "output_coverage": [66.6, 67.0, 69.8]},
+  "fpll": {"output_corruptibility": [43.5, 35.3, 42.2], "corruption_rate": [98.5, 98.6, 100.0], "output_coverage": [68.9, 66.8, 70.8]}
+ }
+}

@@ -1,0 +1,12 @@
+# Values digitised by pixel analysis from Fig. 5 of the paper (FLL insertion, 5% key-gates).
+# Validation: the means of these columns reproduce the paper's Table II (XOR 41.9/99.7/66.6, tristate 42.0/99.6/70.1) to within 0.2 points.
+# Accuracy of individual bars is about +/-0.5 points. i8 corruptibility is also given in the text (47.3 -> 45.1).
+circuit,xor_corruptibility,tri_corruptibility,xor_corruption_rate,tri_corruption_rate,xor_coverage,tri_coverage
+c432,39.4,40.7,97.6,97.1,78.4,82.3
+c1355,40.0,38.4,100.0,100.0,56.2,60.2
+c1908,46.3,46.4,100.0,100.0,63.5,71.9
+c3540,37.3,37.2,100.0,100.0,66.9,67.5
+c5315,35.5,39.6,100.0,100.0,52.9,63.8
+c7552,41.9,43.3,100.0,100.0,53.7,55.4
+i8,47.4,45.2,100.0,100.0,86.8,85.4
+apex4,47.5,46.0,100.0,100.0,75.3,75.6
